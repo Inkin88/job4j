@@ -9,6 +9,7 @@ public class Calculate {
 	
 /** 
 * Метод main без параметров выводит на экран фразу Hello World
+* @param args
 */	
 public static void main(String[] args) {
 	System.out.println("Hello World");
