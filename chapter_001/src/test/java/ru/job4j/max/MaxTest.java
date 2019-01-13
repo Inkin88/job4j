@@ -16,4 +16,11 @@ public class MaxTest {
         int result = maxim.max(2, 1);
         assertThat(result, is(2));
     }
+    @Test
+    public void firstMaxThenSecondAndThird() {
+        Max temp = new Max();
+        int result = temp.max(5, 4, 3);
+        assertThat(result, is(5));
+    }
+
 }

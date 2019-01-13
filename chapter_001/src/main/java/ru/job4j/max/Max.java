@@ -15,9 +15,11 @@ public class Max {
      * @return максимально число.
      */
     public int max(int first, int second) {
-        int maximum = first < second ? second : first;
-        return maximum;
-
+        return first < second ? second : first;
     }
 
+    public int max(int first, int second, int third) {
+        int temp = this.max((this.max(first, second)), third);
+        return temp;
+    }
 }
