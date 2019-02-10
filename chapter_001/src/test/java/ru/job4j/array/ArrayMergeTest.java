@@ -3,6 +3,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
+/**
+ * Тест
+ * @author Airat Muzafarov.
+ * @version 0.1.
+ * @since 10.02.2019.
+ */
+
 public class ArrayMergeTest {
     @Test
     public void whenTwoArraysGetOneShortedArray() {

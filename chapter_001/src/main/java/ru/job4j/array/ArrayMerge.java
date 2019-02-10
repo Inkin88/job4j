@@ -2,7 +2,20 @@ package ru.job4j.array;
 
 import java.util.Arrays;
 
+/**
+ * Класс выполняющий сортировку слиянием
+ * @author Airat Muzafarov.
+ * @version 0.1.
+ * @since 10.02.2019
+ */
+
 public class ArrayMerge {
+    /**
+     * Метод выполняющий сортировку слинием.
+     * @param a1 первый массив.
+     * @param a2 второй массив.
+     * @return отсортированный третий массив.
+     */
     public int[] merge(int[] a1, int[] a2) {
         Arrays.sort(a1);
         Arrays.sort(a2);
