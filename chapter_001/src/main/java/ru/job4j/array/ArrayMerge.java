@@ -17,8 +17,6 @@ public class ArrayMerge {
      * @return отсортированный третий массив.
      */
     public int[] merge(int[] a1, int[] a2) {
-        Arrays.sort(a1);
-        Arrays.sort(a2);
         int[] a3 = new int[a1.length + a2.length];
         int i = 0, j = 0;
         for (int k = 0; k < a3.length; k++) {
