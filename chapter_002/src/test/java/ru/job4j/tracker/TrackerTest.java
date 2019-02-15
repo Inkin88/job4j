@@ -48,8 +48,8 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item("test1", "testDescription", 123L);
         tracker.add(item);
-        String result = "test1";
-        assertThat(result, is(item.getName()));
+        Item[] result = tracker.findByName("test1");
+        assertThat(result, is(tracker.findAll()));
     }
     @Test
     public void whenDeleteItemThenTrackerMustDeleteCellInTheArray() {
