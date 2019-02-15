@@ -36,4 +36,10 @@ public class Item {
     public String[] getComments(String[] args) {
         return this.comments;
     }
+
+    @Override
+    public String toString() {
+        return "Item: [id = " + id + ", name = " + name + ", desc:" + desc + ", created: " + created + "]";
+    }
+
 }
