@@ -26,7 +26,7 @@ public class Item {
 
         return this.id;
     }
-    public void setId(String id){
+    public void setId(String id) {
         this.id = id;
     }
 

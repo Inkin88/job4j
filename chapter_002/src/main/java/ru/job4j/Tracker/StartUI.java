@@ -80,12 +80,12 @@ public class StartUI {
     }
     private void showAllItems() {
         System.out.println("------------ Все заявки: ------------");
-        for (Item items : this.tracker.findAll())
-            System.out.println(items);
+        for (Item items : this.tracker.findAll()) {
+            System.out.println(items); }
         if (tracker.position == 0) {
             System.out.println("Заявок нет, создайте заявку!");
         }
-        }
+    }
 
     private void editItem() {
         System.out.println("------------ Меняем заявку ------------");
@@ -96,8 +96,10 @@ public class StartUI {
         boolean result = this.tracker.replace(id, item);
         if (result) {
             System.out.println("------------ Заявка изменена. ------------" + item);
-        } else {System.out.println("Нет такой заявки с таким id"); }
+        } else {
+            System.out.println("Нет такой заявки с таким id");
         }
+    }
 
     private void deleteItem() {
         System.out.println("------------ Удаляем заявку ------------");

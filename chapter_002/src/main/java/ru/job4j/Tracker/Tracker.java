@@ -5,7 +5,7 @@ public class Tracker {
 
     private Item[] items = new Item[100];
     public int position = 0;
-    private static Random RN = new Random();
+    private static Random rnid = new Random();
 
     /**
      * Метод добавляет заявку в Трекер
@@ -23,7 +23,7 @@ public class Tracker {
      * @return id
      */
     public String generateId() {
-        return String.valueOf(RN.nextInt(100));
+        return String.valueOf(rnid.nextInt(100));
     }
 
     /**
@@ -34,7 +34,7 @@ public class Tracker {
      */
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for(int index = 0; index < position; index++) {
+        for (int index = 0; index < position; index++) {
             if (this.items[index].getId().equals(id)) {
                 this.items[index] = item;
                 item.setId(id);
