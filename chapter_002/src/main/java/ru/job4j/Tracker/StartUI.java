@@ -141,7 +141,7 @@ public class StartUI {
 
     /**
      * Запускт программы.
-     * @param args
+     * @param args вводные данные.
      */
     public static void main(String[] args) {
         new StartUI(new ConsoleInput(), new Tracker()).init();
