@@ -19,7 +19,7 @@ public class Item {
     public String getName() {
         return this.name;
     }
-    public String getDesc(String desc) {
+    public String getDesc() {
         return this.desc;
     }
     public String getId() {
