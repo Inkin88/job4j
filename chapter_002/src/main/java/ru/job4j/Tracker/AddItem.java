@@ -3,6 +3,7 @@ package ru.job4j.tracker;
 public class AddItem implements UserAction {
     int key;
     String info;
+
     public AddItem(int key, String info) {
         this.key = key;
         this.info = info;
