@@ -1,14 +1,10 @@
 package ru.job4j.tracker;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @version $Id$
  * @since 0.1
  */
 public class StartUI {
-    private int[] ranges = new int[] {};
 
     private boolean working = true;
 
@@ -34,14 +30,10 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        List<Integer> range = new ArrayList<>();
         menu.fillActions(this);
-        for (int i = 0; i < menu.getActionsLentgh(); i++) {
-            range.add(i);
-        }
         do {
             menu.show();
-            menu.select(input.ask("select:", ranges));
+            menu.select(input.ask("select:", menu.getRange()));
         } while (this.working);
     }
     public void stop() {
