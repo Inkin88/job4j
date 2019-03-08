@@ -25,9 +25,9 @@ public class MenuTracker {
         this.actions.add(new FindItemsByName(5, "5. Find item by name."));
         this.actions.add(new ExitProgram(6, "6. Exit.", start));
     }
-    public int[] getRange(){
+    public int[] getRange() {
         int[] range = new int[this.actions.size()];
-        for(int i = 0; i < range.length; i++) {
+        for (int i = 0; i < range.length; i++) {
             range[i] = i;
         }
         return range;

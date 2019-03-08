@@ -1,16 +1,10 @@
 package ru.job4j.tracker;
 
-public class DeleteItem implements UserAction {
-    int key;
-    String info;
+public class DeleteItem extends BaseActions {
     public DeleteItem(int key, String info) {
-        this.key = key;
-        this.info = info;
+        super(key, info);
     }
-    @Override
-    public int key() {
-        return this.key;
-    }
+
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Удаляем заявку ------------");
@@ -21,9 +15,7 @@ public class DeleteItem implements UserAction {
         } else {
             System.out.println("Нет такой заявки с таким id");
         }
-    }
-    @Override
-    public String info() {
-        return this.info;
+
+
     }
 }

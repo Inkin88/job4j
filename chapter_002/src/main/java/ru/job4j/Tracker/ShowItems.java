@@ -1,16 +1,9 @@
 package ru.job4j.tracker;
 
-public class ShowItems implements UserAction {
-    int key;
-    String info;
-    public ShowItems(int key, String info) {
-        this.key = key;
-        this.info = info;
-    }
+public class ShowItems extends BaseActions {
 
-    @Override
-    public int key() {
-        return this.key;
+    public ShowItems(int key, String info) {
+       super(key, info);
     }
     @Override
     public void execute(Input input, Tracker tracker) {
@@ -22,9 +15,4 @@ public class ShowItems implements UserAction {
         }
 
     }
-    @Override
-    public String info() {
-        return this.info;
-    }
-
 }
