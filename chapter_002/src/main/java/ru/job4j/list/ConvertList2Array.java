@@ -8,7 +8,7 @@ public class ConvertList2Array {
         int cells = (int) Math.ceil(list.size() / (double) rows);
         int i = 0;
         int[][] array = new int[rows][cells];
-        for (int x = 0; x < rows; x++) {
+       for (int x = 0; x < rows; x++) {
             for (int y = 0; y < cells; y++) {
                 if (i == list.size()) {
                     break;
@@ -18,6 +18,7 @@ public class ConvertList2Array {
         }
         return array;
     }
+
     public List<Integer> converter(List<int[]> list) {
         List<Integer> result = new ArrayList<>();
         for (int[] x : list) {
