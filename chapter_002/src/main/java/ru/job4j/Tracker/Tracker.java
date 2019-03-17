@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Tracker {
 
-    private Item[] items = new Item[100];
+    private List<Item> items = new ArrayList<>();
     public int position = 0;
     private static Random rnid = new Random();
 
@@ -14,7 +14,7 @@ public class Tracker {
      */
     public Item add(Item item) {
         item.setId(this.generateId()); // генерируем ID и присваеваем добавляемой заявке.
-        this.items[position++] = item;
+        items.add(item);
         return item;
     }
 
@@ -34,10 +34,10 @@ public class Tracker {
      */
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (int index = 0; index < position; index++) {
-            if (this.items[index].getId().equals(id)) {
-                this.items[index] = item;
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId().equals(id)) {
                 item.setId(id);
+                items.set(index, item);
                 result = true;
                 break;
             }
@@ -46,27 +46,26 @@ public class Tracker {
     }
 
     /**
-     * Метод который возвращает массив заявок без null
-     * @return массив
+     * Метод который возвращает лист заявок
+     * @return list
      */
-    public Item[] findAll() {
-        return Arrays.copyOf(items, position);
+    public List<Item> findAll() {
+        return items;
     }
 
     /**
      * Метод сравниевает имя.
      * @param key имя
-     * @return массив заявок с совпавшими именами
+     * @return list заявок с совпавшими именами
      */
-    public Item[] findByName(String key) {
-        int count = 0;
-        Item[] result = new Item[this.position];
-        for (int index = 0; index < this.position; index++) {
-            if (items[index].getName().equals(key)) {
-                result[count++] = items[index];
+    public List<Item> findByName(String key) {
+        List<Item> list = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                list.add(item);
             }
         }
-        return Arrays.copyOf(result, count);
+        return list;
 
     }
 
@@ -93,11 +92,10 @@ public class Tracker {
      */
     public boolean delete(String id) {
         boolean result = false;
-        for (int i = 0; i < position; i++) {
-            if (items[i].getId().equals(id)) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getId().equals(id)) {
                 result = true;
-                System.arraycopy(items, i + 1, items, i, position - i);
-                position--;
+                items.remove(i);
                 break;
             }
         }
