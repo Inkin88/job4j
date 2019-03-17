@@ -3,6 +3,8 @@ package ru.job4j.patterns;
 import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Tracker;
 
+import java.util.List;
+
 public enum TrackerSingletonEnum {
     INSTANCE;
     private Tracker tracker = new Tracker();
@@ -15,10 +17,10 @@ public enum TrackerSingletonEnum {
     public boolean replace(String id, Item item) {
         return tracker.replace(id, item);
     }
-    public Item[] findAll() {
+    public List<Item> findAll() {
         return tracker.findAll();
     }
-    public Item[] findByName(String key) {
+    public List<Item> findByName(String key) {
         return tracker.findByName(key);
     }
     public Item findById(String id) {

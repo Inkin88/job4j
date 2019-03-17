@@ -3,6 +3,8 @@ package ru.job4j.patterns;
 import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Tracker;
 
+import java.util.List;
+
 public class TrackerSingletonStaticFinalFieldEagerLoading {
     private static final TrackerSingletonStaticFinalFieldEagerLoading INSTANCE = new TrackerSingletonStaticFinalFieldEagerLoading();
     private TrackerSingletonStaticFinalFieldEagerLoading() {
@@ -22,10 +24,10 @@ public class TrackerSingletonStaticFinalFieldEagerLoading {
     public boolean replace(String id, Item item) {
         return tracker.replace(id, item);
     }
-    public Item[] findAll() {
+    public List<Item> findAll() {
         return tracker.findAll();
     }
-    public Item[] findByName(String key) {
+    public List<Item> findByName(String key) {
         return tracker.findByName(key);
     }
     public Item findById(String id) {
