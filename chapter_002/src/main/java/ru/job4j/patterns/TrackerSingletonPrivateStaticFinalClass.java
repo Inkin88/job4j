@@ -6,7 +6,7 @@ import ru.job4j.tracker.Tracker;
 import java.util.List;
 
 public class TrackerSingletonPrivateStaticFinalClass {
-    private TrackerSingletonPrivateStaticFinalClass(){
+    private TrackerSingletonPrivateStaticFinalClass() {
 
     }
     private static final class Holder {

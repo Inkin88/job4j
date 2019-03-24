@@ -10,7 +10,7 @@ public class TrackerSingletonStaticFieldLazyLoading {
     private TrackerSingletonStaticFieldLazyLoading() {
     }
     public static TrackerSingletonStaticFieldLazyLoading getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new TrackerSingletonStaticFieldLazyLoading();
         }
         return instance;
