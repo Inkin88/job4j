@@ -1,36 +1,34 @@
 package ru.job4j.coffeemachine;
 
 public class Coffeemachine {
-    int tenCoins, fiveCoins, twoCoins, oneCoins;
+    int[] coins = {10, 5, 2, 1};
+    int[] coinsQty = new int[4];
     public int[] changes(int value, int price) {
+        int index = 0;
         int c = value - price;
-        if (c >= 10) {
-            this.tenCoins = c / 10;
+        for (int x : coins) {
+            if (x <= c) {
+                coinsQty[index] = c / x;
+                c = c - (coinsQty[index] * x);
+                index++;
+            }
         }
-        c = c - (tenCoins * 10);
-        if (c >= 5) {
-            this.fiveCoins = c / 5;
+        int sum = 0;
+        for (int i = 0; i < coinsQty.length; i++) {
+            sum = sum + coinsQty[i];
         }
-        c = c - (fiveCoins * 5);
-        if (c >= 2) {
-            this.twoCoins = c / 2;
-        }
-        c = c - (twoCoins * 2);
-        if (c >= 1) {
-            this.oneCoins = 1;
-        }
-        int coins = this.fiveCoins + this.oneCoins + this.twoCoins + this.tenCoins;
-        int[] change = new int[coins];
-        for (int i = 0; i < this.tenCoins; i++) {
+
+        int[] change = new int[sum];
+        for (int i = 0; i < coinsQty[0]; i++) {
             change[i] = 10;
         }
-        for (int i = this.tenCoins; i < this.tenCoins + this.fiveCoins; i++) {
+        for (int i = coinsQty[0]; i < coinsQty[0] + coinsQty[1]; i++) {
             change[i] = 5;
         }
-        for (int i = this.tenCoins + this.fiveCoins; i < this.tenCoins + this.fiveCoins + this.twoCoins; i++) {
+        for (int i = coinsQty[0] + coinsQty[1]; i < coinsQty[0] + coinsQty[1] + coinsQty[2]; i++) {
             change[i] = 2;
         }
-        for (int i = this.tenCoins + this.fiveCoins + this.twoCoins; i < coins; i++) {
+        for (int i = coinsQty[0] + coinsQty[1] + coinsQty[2]; i < sum; i++) {
             change[i] = 1;
         }
         return change;
