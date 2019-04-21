@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Tracker {
 
@@ -59,14 +60,7 @@ public class Tracker {
      * @return list заявок с совпавшими именами
      */
     public List<Item> findByName(String key) {
-        List<Item> list = new ArrayList<>();
-        for (Item item : items) {
-            if (item.getName().equals(key)) {
-                list.add(item);
-            }
-        }
-        return list;
-
+        return items.stream().filter(item -> item.getName().equals(key)).collect(Collectors.toList());
     }
 
     /**
@@ -75,14 +69,7 @@ public class Tracker {
      * @return если такого id нет возвращает null, если есть то найденную заявку.
      */
     public Item findById(String id) {
-        Item result = null;
-        for (Item item : items) {
-            if (item != null && item.getId().equals(id)) {
-                result = item;
-                break;
-            }
-        }
-        return result;
+        return items.stream().filter(item -> item.getId().equals(id)).findFirst().orElse(null);
     }
 
     /**
