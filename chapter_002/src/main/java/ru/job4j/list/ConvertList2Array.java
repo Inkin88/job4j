@@ -1,7 +1,9 @@
 package ru.job4j.list;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ConvertList2Array {
     public int[][] toArray(List<Integer> list, int rows) {

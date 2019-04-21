@@ -1,6 +1,7 @@
 package ru.job4j.collectionsort;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author Airat Muzafarov
@@ -26,15 +27,13 @@ public class SortUser {
      * @return отсортированный список по длине имени.
      */
     public List<User> sortNameLength(List<User> user) {
-        List<User> result = new ArrayList<>(user);
         Comparator<User> sortName = new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
                return Integer.compare(o1.getName().length(), o2.getName().length());
             }
         };
-        result.sort(sortName);
-        return result;
+        return user.stream().sorted(sortName).collect(Collectors.toList());
     }
 
     /**
@@ -43,7 +42,6 @@ public class SortUser {
      * @return отсортированный список.
      */
     public List<User> sortByAllFields(List<User> user) {
-        List<User> result = new ArrayList<>(user);
         Comparator<User> sortFields = new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
@@ -51,7 +49,6 @@ public class SortUser {
                 return rs == 0 ? Integer.compare(o1.getAge(), o2.getAge()) : rs;
             }
         };
-        result.sort(sortFields);
-        return result;
+        return user.stream().sorted(sortFields).collect(Collectors.toList());
     }
 }
