@@ -116,7 +116,7 @@ public class StartUITest {
         for (Item item : tracker.findAll()) {
             builder.append(String.format("Item: [id = " + item.getId() + ", name = " + item.getName() + ", desc:" + item.getDesc() + ", created: " + item.getCreated() + "]\r\n"));
         }
-        builder.append("Items not added, please create item.\r\n");
+        builder.append(String.format("Items not added, please create item.%n"));
         builder.append(menu);
         new StartUI(new StubInput(action), tracker, output).init();
         assertThat(out.toString(), is(builder.toString()));
@@ -140,7 +140,7 @@ public class StartUITest {
         for (Item item : tracker.findByName("test name1")) {
             builder.append(String.format("Item: [id = " + item.getId() + ", name = " + item.getName() + ", desc:" + item.getDesc() + ", created: " + item.getCreated() + "]"));
         }
-        builder.append("]\r\n");
+        builder.append(String.format("]%n"));
         builder.append(menu);
         new StartUI(new StubInput(action), tracker, output).init();
         assertThat(out.toString(), is(builder.toString()));
