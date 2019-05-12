@@ -114,7 +114,7 @@ public class StartUITest {
         String[] action = {"1", "6"};
         builder.append(String.format("------------ All items: ------------%n"));
         for (Item item : tracker.findAll()) {
-            builder.append(String.format("Item: [id = " + item.getId() + ", name = " + item.getName() + ", desc:" + item.getDesc() + ", created: " + item.getCreated() + "]\r\n"));
+            builder.append(String.format("Item: [id = " + item.getId() + ", name = " + item.getName() + ", desc:" + item.getDesc() + ", created: " + item.getCreated() + "]%n"));
         }
         builder.append(String.format("Items not added, please create item.%n"));
         builder.append(menu);
