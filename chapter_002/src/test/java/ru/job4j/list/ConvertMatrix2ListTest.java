@@ -11,7 +11,7 @@ public class ConvertMatrix2ListTest {
     @Test
     public void matrixThenList() {
         ConvertMatrix2List list = new ConvertMatrix2List();
-        List<Integer> expect = Arrays.asList(1, 2, 3, 4);
+        List<Integer> expect = List.of(1, 2, 3, 4);
         int[][] input = {
                 {1, 2},
                 {3, 4}
