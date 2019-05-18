@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 public class PriorityQueue {
     private LinkedList<Task> tasks = new LinkedList<>();
     public void put(Task task) {
-        Iterator<Task> iter = tasks.iterator();
-        List<Task> gg = tasks.stream().filter(task1 -> iter.next().getPriority() < task.getPriority()).collect(Collectors.toList());
+        var iter = tasks.iterator();
+        var gg = tasks.stream().filter(task1 -> iter.next().getPriority() < task.getPriority()).collect(Collectors.toList());
        /* int i = 0;
         for (; iter.hasNext(); i++) {
             if (iter.next().getPriority() > task.getPriority()) {

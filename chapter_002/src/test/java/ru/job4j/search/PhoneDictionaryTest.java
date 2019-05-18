@@ -12,7 +12,7 @@ public class PhoneDictionaryTest {
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
-        List<Person> persons = phones.find("Pe");
+        var persons = phones.find("Pe");
         assertThat(persons.iterator().next().getSurname(), is("Arsentev"));
     }
 }
