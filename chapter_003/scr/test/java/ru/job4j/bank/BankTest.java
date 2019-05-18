@@ -18,11 +18,11 @@ public class BankTest {
     @Before
     public void addSomeUsers() {
         bank = new Bank();
-        accounts = new ArrayList<>();
         bank.addUser(user1);
         bank.addUser(user2);
-        accounts.add(new Account(150, "11111"));
-        accounts.add(new Account(500, "2222"));
+        accounts = List.of(
+        new Account(150, "11111"),
+        new Account(500, "2222"));
         bank.addAccountToUser(user1.getPassport(), accounts.get(0));
         bank.addAccountToUser(user2.getPassport(), accounts.get(1));
 
