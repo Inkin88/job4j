@@ -20,7 +20,7 @@ public class ArrayIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        if(matrix[indexX].length == indexY) {
+        if (matrix[indexX].length == indexY) {
             indexX++;
             indexY = 0;
         }
@@ -29,10 +29,10 @@ public class ArrayIterator implements Iterator {
 
     @Override
     public Object next() {
-        if(matrix.length == indexX) {
+        if (matrix.length == indexX) {
             throw new NoSuchElementException();
         }
-        if(matrix[indexX].length == indexY) {
+        if (matrix[indexX].length == indexY) {
             indexX++;
             indexY = 0;
         }
