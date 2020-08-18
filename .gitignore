@@ -27,3 +27,5 @@ target
 *.iml
 
 out
+/even.txt
+/input.txt
