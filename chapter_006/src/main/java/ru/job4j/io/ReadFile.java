@@ -4,13 +4,13 @@ import java.io.FileInputStream;
 
 /**
  * @author Airat Muzafarov.
- * @since 13/08/2020
  * @version 0.1
+ * @since 13/08/2020
  */
 
 public class ReadFile {
     public static void main(String[] args) {
-        try(FileInputStream in = new FileInputStream("input.txt")) {
+        try (FileInputStream in = new FileInputStream("input.txt")) {
             StringBuilder text = new StringBuilder();
             int read;
             while ((read = in.read()) != -1) {
