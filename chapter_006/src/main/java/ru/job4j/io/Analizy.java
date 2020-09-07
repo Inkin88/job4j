@@ -1,22 +1,29 @@
 package ru.job4j.io;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Analizy {
     public void unavailable(String source, String target) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(source));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(target))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(source))) {
             String startLine = null;
+            List<String> list = new ArrayList<>();
             while (reader.ready()) {
                 String line = reader.readLine();
                 if (line.startsWith("500") | line.startsWith("400") && startLine == null) {
                     startLine = line.substring(4);
                 }
                 if (line.startsWith("200") && startLine != null) {
-                    writer.write(startLine + ";" + line.substring(4) + "\n");
+                    list.add(startLine + ";" + line.substring(4) + System.lineSeparator());
                     startLine = null;
                 }
             }
+            BufferedWriter writer = new BufferedWriter(new FileWriter(target));
+            for(String str : list) {
+                writer.write(str);
+            }
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
