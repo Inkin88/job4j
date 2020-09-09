@@ -25,10 +25,14 @@ public class SimpleArray<T> implements Iterable<T> {
             elements[elementsCount] = model;
             elementsCount++;
         } else {
-            elements = Arrays.copyOf(elements, elementsCount + 1);
+            grow();
             elementsCount++;
             elements[elementsCount] = model;
         }
+    }
+
+    private void grow() {
+        elements = Arrays.copyOf(elements, elementsCount + 1);
     }
 
     @Override
