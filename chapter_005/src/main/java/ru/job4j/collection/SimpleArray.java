@@ -12,7 +12,7 @@ public class SimpleArray<T> implements Iterable<T> {
     }
 
     public T get(int index) {
-      //  Objects.checkIndex(index, elements.length);
+        //  Objects.checkIndex(index, elements.length);
         if (index >= elementsCount) {
             throw new IndexOutOfBoundsException();
         }
@@ -21,18 +21,14 @@ public class SimpleArray<T> implements Iterable<T> {
 
     public void add(T model) {
         modCount++;
-        if (elementsCount != elements.length) {
-            elements[elementsCount] = model;
-            elementsCount++;
-        } else {
-            grow();
-            elementsCount++;
-            elements[elementsCount] = model;
-        }
+        grow();
+        elements[elementsCount++] = model;
     }
 
     private void grow() {
-        elements = Arrays.copyOf(elements, elementsCount + 1);
+        if (elementsCount == elements.length) {
+            elements = Arrays.copyOf(elements, elementsCount * 2 + 1);
+        }
     }
 
     @Override
