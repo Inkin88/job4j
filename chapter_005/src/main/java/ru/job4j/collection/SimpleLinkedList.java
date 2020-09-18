@@ -39,25 +39,15 @@ public class SimpleLinkedList<E> implements Iterable<E> {
         return result.data;
     }
 
-    public E delete(E value) {
-        Node<E> currentNode = first;
-        Node<E> prevNode = null;
-        Node<E> result = null;
+    public E delete() {
         if (size == 0) {
             throw new NoSuchElementException();
         }
-        if (currentNode != null && currentNode.data.equals(value)) {
-            result = first;
-            first = currentNode.next;
-        }
-        while (currentNode != null && !(currentNode.data.equals(value))) {
-            prevNode = currentNode;
-            currentNode = currentNode.next;
-        }
+        E result = first.data;
+        first = first.next;
         modCount++;
         size--;
-        return result.data;
-
+        return result;
     }
 
     @Override
