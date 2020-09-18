@@ -20,7 +20,7 @@ public class Analizy {
                 }
             }
             BufferedWriter writer = new BufferedWriter(new FileWriter(target));
-            for(String str : list) {
+            for (String str : list) {
                 writer.write(str);
             }
             writer.close();
