@@ -30,6 +30,9 @@ public class SimpleArray<T> implements Iterable<T> {
             elements = Arrays.copyOf(elements, elementsCount * 2 + 1);
         }
     }
+    public int getElementsCount() {
+        return elementsCount;
+    }
 
     @Override
     public Iterator<T> iterator() {
