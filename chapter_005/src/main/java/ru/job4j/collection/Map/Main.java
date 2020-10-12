@@ -12,6 +12,7 @@ public class Main {
         map.put(user1, null);
         map.put(user2, null);
         System.out.println(map);
-
+        System.out.println(user1.hashCode());
+        System.out.println(user2.hashCode());
     }
 }
