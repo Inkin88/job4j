@@ -1,6 +1,7 @@
 package ru.job4j.collection;
 
 import java.util.Iterator;
+import java.util.Objects;
 
 public class SimpleSet<T> implements Iterable<T> {
 
@@ -11,20 +12,24 @@ public class SimpleSet<T> implements Iterable<T> {
     }
 
     public void add(T t) {
-        boolean isContain = false;
-        for (T t1 : simpleArray) {
-            if (t.equals(t1)) {
-                isContain = true;
-                break;
-            }
-        }
-        if (!isContain) {
+        if (!isContains(t)) {
             simpleArray.add(t);
         }
     }
 
     public int getSize() {
         return simpleArray.getElementsCount();
+    }
+
+    private boolean isContains(T t) {
+        boolean isContain = false;
+        for (T t1 : simpleArray) {
+            if (Objects.equals(t1, t)) {
+                isContain = true;
+                break;
+            }
+        }
+        return isContain;
     }
 
     @Override
