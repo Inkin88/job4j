@@ -11,6 +11,7 @@ public class Main {
         Map<User, Object> map = new HashMap<>();
         map.put(user1, null);
         map.put(user2, null);
+        System.out.println("Объекты равны - " + user1.equals(user2));
         System.out.println(map);
         System.out.println(user1.hashCode());
         System.out.println(user2.hashCode());
