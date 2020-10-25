@@ -13,6 +13,8 @@ public class ConsoleChat {
     private static final String STOP = "стоп";
     private static final String CONTINUE = "продолжить";
     private static boolean isNotStopped = true;
+    private final List<String> log = new ArrayList<>();
+    private final Random random = new Random();
 
     public ConsoleChat(String path, String botAnswers) {
         this.path = path;
@@ -20,8 +22,8 @@ public class ConsoleChat {
     }
 
     public void run() throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path));
-             Scanner scanner = new Scanner(System.in)) {
+        List<String> answers = getAnswersList();
+        try (Scanner scanner = new Scanner(System.in)) {
             String s = "";
             while (!s.equals(OUT)) {
                 s = scanner.nextLine();
@@ -30,17 +32,18 @@ public class ConsoleChat {
                 } else if (s.equals(CONTINUE)) {
                     isNotStopped = true;
                 }
-                writer.write(s + '\n');
+                log.add(s);
                 if (isNotStopped) {
-                    writer.write(getBotAnswers() + '\n');
+                    log.add(getBotAnswer(answers));
                 }
             }
         }
+        writeToLog(log);
     }
 
     public static void main(String[] args) {
-        ConsoleChat cc = new ConsoleChat("C:\\projects\\job4j\\chapter_006\\src\\main\\java\\ru\\job4j\\chat\\chatLog.txt",
-                "C:\\projects\\job4j\\chapter_006\\src\\main\\java\\ru\\job4j\\chat\\answers.txt");
+        ConsoleChat cc = new ConsoleChat(".\\chapter_006\\src\\main\\java\\ru\\job4j\\chat\\chatLog.txt",
+                ".\\chapter_006\\src\\main\\java\\ru\\job4j\\chat\\answers.txt");
         try {
             cc.run();
         } catch (IOException e) {
@@ -48,7 +51,7 @@ public class ConsoleChat {
         }
     }
 
-    private String getBotAnswers() throws IOException {
+    private List<String> getAnswersList() throws IOException {
         List<String> answers = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(botAnswers))) {
             String s;
@@ -58,9 +61,22 @@ public class ConsoleChat {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        Random random = new Random();
-        String result = answers.get(random.nextInt(answers.size()));
-        System.out.println(result);
-        return result;
+        return answers;
+    }
+
+    private String getBotAnswer(List<String> list) {
+        String botAnswer = list.get(random.nextInt(list.size()));
+        System.out.println(botAnswer);
+        return botAnswer;
+    }
+
+    private void writeToLog(List<String> chat) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
+            for (String s : chat) {
+                writer.write(s + System.lineSeparator());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
