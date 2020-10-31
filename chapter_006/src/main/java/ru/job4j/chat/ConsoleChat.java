@@ -42,8 +42,8 @@ public class ConsoleChat {
     }
 
     public static void main(String[] args) {
-        ConsoleChat cc = new ConsoleChat(".\\chapter_006\\src\\main\\java\\ru\\job4j\\chat\\chatLog.txt",
-                ".\\chapter_006\\src\\main\\java\\ru\\job4j\\chat\\answers.txt");
+        ConsoleChat cc = new ConsoleChat("./chapter_006/src/main/java/ru/job4j/chat/chatLog.txt",
+                "./chapter_006/src/main/java/ru/job4j/chat/answers.txt");
         try {
             cc.run();
         } catch (IOException e) {
